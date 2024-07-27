@@ -26,9 +26,6 @@ class RegisterController extends AbstractController
                     $user->setName($name);
                     $user->setPassword($password);
                     $user->setLoginCount(0);
-                    $date = new \DateTimeImmutable("now");
-                    $datetime = \DateTimeImmutable::createFromInterface($date);
-                    $user->setCreatedAt($datetime);
                     $entityManager->persist($user);
                     $entityManager->flush();
                     return $this->redirectToRoute('user_page');

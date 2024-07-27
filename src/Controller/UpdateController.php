@@ -29,9 +29,6 @@ class UpdateController extends AbstractController
                 } else {
                     $user->setName($name);
                     $user->setPassword($password);
-                    $date = new \DateTimeImmutable("now");
-                    $datetime = \DateTimeImmutable::createFromInterface($date);
-                    $user->setUpdatedAt($datetime);
                     $entityManager->persist($user);
                     $entityManager->flush();
                     return $this->redirectToRoute('login_page');
